@@ -75,9 +75,6 @@ cd frontend
 # Install dependencies
 npm install
 
-# Install required UI components
-npx shadcn-ui@latest init
-npx shadcn-ui@latest add card button input scroll-area
 ```
 
 4. Set up the backend:
@@ -86,7 +83,7 @@ npx shadcn-ui@latest add card button input scroll-area
 cd backend
 
 # Create and activate virtual environment (optional but recommended)
-python -m venv venv
+python3 -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
@@ -99,7 +96,7 @@ pip install -r requirements.txt
 ```bash
 # From the root directory
 cd backend
-python main.py
+python3 main.py
 # Server will start at http://localhost:8000
 ```
 
@@ -158,7 +155,7 @@ From root directory:
 
 ```bash
 # Start backend
-cd backend && python run.py
+cd backend && python3 run.py
 
 # Start frontend
 cd frontend && npm run dev
@@ -166,8 +163,6 @@ cd frontend && npm run dev
 # Install frontend dependencies
 cd frontend && npm install
 
-# Update UI components
-cd frontend && npx shadcn-ui@latest add card button input scroll-area
 ```
 
 ## Environment Variables
@@ -184,12 +179,11 @@ Frontend:
 - Next.js 14
 - TypeScript
 - Tailwind CSS
-- shadcn/ui
 - Lucide Icons
 
 Backend:
 - FastAPI
-- Python
+- Python3
 - Anthropic Claude API
 - uvicorn
 
