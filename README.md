@@ -96,7 +96,7 @@ pip install -r requirements.txt
 ```bash
 # From the root directory
 cd backend
-python3 main.py
+python3 run.py
 # Server will start at http://localhost:8000
 ```
 
