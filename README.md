@@ -2,7 +2,7 @@
 
 A full-stack application that helps users learn JavaScript/TypeScript by generating and explaining code examples. Built with Next.js, FastAPI, and Claude AI.
 
-![JavaScript Tutor Screenshot](https://via.placeholder.com/800x400)
+![JavaScript Tutor Screenshot]![Alt text](image.png)
 
 ## Project Structure
 
@@ -25,7 +25,7 @@ javascript-tutor/
 - ⚡ Quick action suggestions
 - 🎨 Modern, responsive UI
 - 💻 Syntax-highlighted code blocks
-- ✨ Real-time interaction
+- ✨ Real-time interaction        
 
 ## Prerequisites
 
