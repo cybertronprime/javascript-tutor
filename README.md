@@ -1,36 +1,196 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# JavaScript Tutor - AI Coding Assistant
 
-## Getting Started
+A full-stack application that helps users learn JavaScript/TypeScript by generating and explaining code examples. Built with Next.js, FastAPI, and Claude AI.
 
-First, run the development server:
+![JavaScript Tutor Screenshot](https://via.placeholder.com/800x400)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Project Structure
+
+```
+javascript-tutor/
+├── frontend/               # Next.js frontend application
+│   ├── app/               # Next.js app directory
+│   ├── components/        # React components
+│   └── package.json       # Frontend dependencies
+├── backend/               # Python FastAPI backend
+│   └── main.py           # Main API file
+├── .env                   # Environment variables
+└── README.md             # This file
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🤖 AI-powered JavaScript/TypeScript code generation
+- 💡 Instant code explanations
+- ⚡ Quick action suggestions
+- 🎨 Modern, responsive UI
+- 💻 Syntax-highlighted code blocks
+- ✨ Real-time interaction
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Prerequisites
 
-## Learn More
+- Node.js (v18 or higher)
+- Python (3.8 or higher)
+- Anthropic API key
 
-To learn more about Next.js, take a look at the following resources:
+## Setup & Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/javascript-tutor.git
+cd javascript-tutor
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Create and set up environment variables:
+```bash
+# Create .env file in root directory
+touch .env
 
-## Deploy on Vercel
+# Add your Anthropic API key
+echo "ANTHROPIC_API_KEY=your_api_key_here" >> .env
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Set up the frontend:
+```bash
+# Navigate to frontend directory
+cd frontend
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Install dependencies
+npm install
+
+# Install required UI components
+npx shadcn-ui@latest init
+npx shadcn-ui@latest add card button input scroll-area
+```
+
+4. Set up the backend:
+```bash
+# Navigate to backend directory from root
+cd backend
+
+# Create and activate virtual environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install fastapi uvicorn anthropic python-dotenv
+```
+
+## Running the Application
+
+1. Start the backend server:
+```bash
+# From the root directory
+cd backend
+python main.py
+# Server will start at http://localhost:8000
+```
+
+2. Start the frontend development server:
+```bash
+# From the root directory
+cd frontend
+npm run dev
+# Application will be available at http://localhost:3000
+```
+
+## API Endpoints
+
+### POST `/api/generate`
+Generates JavaScript/TypeScript code based on user prompt.
+
+Request body:
+```json
+{
+    "prompt": "Write a function to add two numbers"
+}
+```
+
+Response:
+```json
+{
+    "code": "function add(a: number, b: number): number {\n  return a + b;\n}",
+    "explanation": "Adds two numbers and returns their sum"
+}
+```
+
+### GET `/health`
+Health check endpoint.
+
+Response:
+```json
+{
+    "status": "healthy"
+}
+```
+
+## Development Commands
+
+From root directory:
+
+```bash
+# Start backend
+cd backend && python main.py
+
+# Start frontend
+cd frontend && npm run dev
+
+# Install frontend dependencies
+cd frontend && npm install
+
+# Update UI components
+cd frontend && npx shadcn-ui@latest add [component-name]
+```
+
+## Environment Variables
+
+Create a `.env` file in the root directory with the following:
+
+```env
+ANTHROPIC_API_KEY=your_api_key_here
+```
+
+## Tech Stack
+
+Frontend:
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- Lucide Icons
+
+Backend:
+- FastAPI
+- Python
+- Anthropic Claude API
+- uvicorn
+
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Troubleshooting
+
+1. **API Key Issues**:
+   - Ensure `.env` file is in the root directory
+   - Check if the API key is valid
+   - Make sure the environment variable is being loaded correctly
+
+2. **CORS Issues**:
+   - Check if frontend URL matches the allowed origins in backend
+   - Default development URLs are configured correctly
+
+3. **Dependencies**:
+   - Run `npm install` in frontend directory for any missing packages
+   - Run `pip install -r requirements.txt` in backend directory if provided
+
+
+
