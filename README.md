@@ -8,14 +8,31 @@ A full-stack application that helps users learn JavaScript/TypeScript by generat
 
 ```
 javascript-tutor/
-├── frontend/src           # Next.js frontend application
-│   ├── app/               # Next.js app directory
-│   ├── components/        # React components
-│   └── package.json       # Frontend dependencies
-├── backend/               # Python FastAPI backend
-│   └── main.py           # Main API file
-├── .env                   # Environment variables
-└── README.md             # This file
+├── frontend/src               # Next.js frontend application
+│   ├── app/                  # Next.js app directory
+│   ├── components/           # React components
+│   └── package.json          # Frontend dependencies
+├── backend/                  # Python FastAPI backend
+│   ├── app/                 # Main application package
+│   │   ├── __init__.py
+│   │   ├── main.py         # FastAPI app initialization
+│   │   ├── api/           # API endpoints
+│   │   │   ├── __init__.py
+│   │   │   └── routes.py
+│   │   ├── core/          # Core configurations
+│   │   │   ├── __init__.py
+│   │   │   ├── config.py
+│   │   │   └── constants.py
+│   │   ├── models/        # Data models
+│   │   │   ├── __init__.py
+│   │   │   └── schemas.py
+│   │   └── services/      # Business logic
+│   │       ├── __init__.py
+│   │       └── ai_service.py
+│   ├── run.py             # Application entry point
+│   └── requirements.txt    # Python dependencies
+├── .env                    # Environment variables
+└── README.md              # This file
 ```
 
 ## Features
@@ -73,7 +90,7 @@ python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 # Install dependencies
-pip install fastapi uvicorn anthropic python-dotenv
+pip install -r requirements.txt
 ```
 
 ## Running the Application
@@ -92,6 +109,17 @@ python main.py
 cd frontend
 npm run dev
 # Application will be available at http://localhost:3000
+
+```
+## Backend Structure
+```bash
+app/main.py: FastAPI application initialization and CORS configuration
+app/api/routes.py: API endpoints for code generation
+app/core/config.py: Configuration management and environment variables
+app/core/constants.py: System prompts and constants
+app/models/schemas.py: Pydantic models for request/response
+app/services/ai_service.py: AI service for code generation
+run.py: Application entry point
 ```
 
 ## API Endpoints
@@ -130,7 +158,7 @@ From root directory:
 
 ```bash
 # Start backend
-cd backend && python main.py
+cd backend && python run.py
 
 # Start frontend
 cd frontend && npm run dev
