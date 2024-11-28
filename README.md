@@ -8,7 +8,7 @@ A full-stack application that helps users learn JavaScript/TypeScript by generat
 
 ```
 javascript-tutor/
-├── frontend/               # Next.js frontend application
+├── frontend/src           # Next.js frontend application
 │   ├── app/               # Next.js app directory
 │   ├── components/        # React components
 │   └── package.json       # Frontend dependencies
@@ -139,7 +139,7 @@ cd frontend && npm run dev
 cd frontend && npm install
 
 # Update UI components
-cd frontend && npx shadcn-ui@latest add [component-name]
+cd frontend && npx shadcn-ui@latest add card button input scroll-area
 ```
 
 ## Environment Variables
@@ -165,13 +165,7 @@ Backend:
 - Anthropic Claude API
 - uvicorn
 
-## Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
 
 ## License
 
